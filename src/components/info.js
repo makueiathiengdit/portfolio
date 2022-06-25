@@ -16,11 +16,11 @@ let contactInfo = {
 };
 
 let educationInfo = [
-  {
-    year: 2023,
-    school: "Panjab University",
-    award: "Bachelors of Enginering(CSE)",
-  },
+  // {
+  //   year: 2023,
+  //   school: "Panjab University",
+  //   award: "Bachelors of Enginering(CSE)",
+  // },
   {
     year: 2018,
     school: "Don Bosco Secondary School",
