@@ -11,8 +11,8 @@ let personalInfo = {
 };
 
 let contactInfo = {
-  mobile: "+211-000-000-000",
-  email: "mail@domain",
+  mobile: "+91-798-234-1511",
+  email: "makueiathiengdit@gmail.com",
 };
 
 let educationInfo = [
@@ -48,7 +48,7 @@ let certificationInfo = [
     type: "Backend",
     courses: [
       { name: "NodeJS (intermediate)", year: 2020 },
-      { name: "Express", year: 2022 },
+      { name: "Express (intermediate)", year: 2022 },
       { name: "MongoDB", year: 2022 },
       { name: "PHP", year: 2021 },
       { name: "MySQL", year: 2021 },

@@ -117,10 +117,10 @@ function Profile() {
                           <i className="facebook icon blue"></i>
                           {socialsInfo.facebook}
                         </li>
-                        <li className="li-no-style" style={{ padding: "5px" }}>
+                        {/* <li className="li-no-style" style={{ padding: "5px" }}>
                           <i className="twitter icon blue"></i>
                           {socialsInfo.twitter}
-                        </li>
+                        </li> */}
                       </ul>
                     )}
                   </div>

@@ -24,11 +24,18 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Portfolio</title>
+    <title>Resume</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div id="container"></div>
+    <!-- <div
+      id="rdr-embed"
+      data-width="100%"
+      data-height="400"
+      style="width: 100%; max-width: 666px; border: 0"
+    ></div> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,11 +46,46 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
     <link
       async
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui-react/dist/umd/semantic-ui-react.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script>
+      window.rdrAsync = function () {
+        RDR.init({
+          mapContext: "2252334",
+          datastreamHost: "datastream.bepress.com",
+          datastreamPort: "443",
+          datastreamStaticRoot: "https://assets.bepress.com/current/",
+          colorCode: "custom",
+          customColor: "",
+          customSaturation: "0",
+          customLightness: "0",
+          institution_title: "Wilfrid Laurier University",
+          site_title: "Scholars Commons @ Laurier",
+          site_link: "https://scholars.wlu.ca",
+          instCountryCode: "",
+          instCity: "",
+          instRegion: "",
+          instCountry: "",
+          origin: "http://localhost:3000/",
+          refreshRate: 3600000,
+          homepageMap: 1,
+          publicationMap: 0,
+          embedMap: 1,
+          zoom: 1,
+          minZoom: 1,
+          stats_host: "https://resources.bepress.com",
+        });
+      };
+    </script>
+    <script
+      src="https://assets.bepress.com/current/shared/embed/rdr.js"
+      async="true"
+    ></script> -->
   </body>
 </html>
