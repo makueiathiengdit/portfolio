@@ -11,8 +11,8 @@ let personalInfo = {
 };
 
 let contactInfo = {
-  mobile: "+91-798-234-1511",
-  email: "makueiathiengdit@gmail.com",
+  mobile: "+91-000-000-0000",
+  email: "name@gmail.com",
 };
 
 let educationInfo = [
