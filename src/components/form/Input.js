@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
-function Input({ id, type, label, placeholder, passedValue = "" }) {
+function Input({ id, type, label, placeholder, onChange, passedValue = "" }) {
   const [value, setValue] = useState(passedValue);
   const onChangeHandler = (e) => {
-    console.log(value);
     setValue(e.target.value);
   };
   return (
@@ -17,6 +16,9 @@ function Input({ id, type, label, placeholder, passedValue = "" }) {
           value={value}
           placeholder={placeholder}
           onChange={onChangeHandler}
+          onBlur={() => {
+            onChange(id, value);
+          }}
         />
       </label>
     </div>

@@ -5,7 +5,7 @@ function ExperienceInfo() {
   return (
     <div>
       <div className="ui form ">
-        <h4 className="ui dividing header">Experience</h4>
+        <h3 className="ui dividing header">Experience</h3>
         <div id="experience" className="ui experience">
           <ExperienceField />
         </div>

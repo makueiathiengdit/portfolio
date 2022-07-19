@@ -2,6 +2,9 @@ import React from "react";
 import Input from "./Input";
 
 function ExperienceField() {
+  const handleInputChange = (value) => {
+    console.log(value);
+  };
   return (
     <div>
       <div className="ui field">
@@ -11,12 +14,14 @@ function ExperienceField() {
             id="employer"
             placeholder="Enter empolyer"
             label="Employer"
+            onChange={handleInputChange}
           />
           <Input
             type="text"
             id="jobtittle"
             placeholder="Enter job title"
             label="Job title"
+            onChange={handleInputChange}
           />
         </div>
       </div>
@@ -27,12 +32,14 @@ function ExperienceField() {
             id="startdate"
             placeholder="Enter start date"
             label="Start Date"
+            onChange={handleInputChange}
           />
           <Input
             type="text"
             id="enddate"
             placeholder="Enter end date"
             label="End Date"
+            onChange={handleInputChange}
           />
         </div>
       </div>
@@ -42,6 +49,7 @@ function ExperienceField() {
           id="description"
           placeholder="Enter description or responsibilities"
           label="Description"
+          onChange={handleInputChange}
         />
       </div>
     </div>

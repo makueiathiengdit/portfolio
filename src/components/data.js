@@ -45,11 +45,6 @@ let educationInfo = [
     school: placeholders.schoolPlaceholder,
     award: placeholders.awardPlaceholder,
   },
-  {
-    year: placeholders.yearPlaceholder,
-    school: placeholders.schoolPlaceholder,
-    award: placeholders.awardPlaceholder,
-  },
 ];
 
 let certificationInfo = [

@@ -3,22 +3,41 @@ import Input from "./Input";
 import TextArea from "./TextArea";
 import DropDown from "./DropDown";
 import { getContactInfo, getPersonalInfo } from "../data";
+
+import { fetchData, storeData, deleteData } from "../ultils/Storage";
+
 function ContactInfo() {
   const [contactInfo, setContactInfo] = useState({});
   const [personalInfo, setPersonalInfo] = useState({});
   useEffect(() => {
-    setContactInfo(getContactInfo());
-    console.log(contactInfo);
-  }, [contactInfo, setContactInfo]);
+    try {
+      console.log("inside contact");
+      let localStorageData = fetchData("contact");
+      if (!localStorageData) throw new Error("Contact data not found");
+      else setContactInfo(localStorageData);
+    } catch (e) {
+      console.log(e);
+      setContactInfo(getContactInfo());
+      storeData("contact", contactInfo);
+    }
+  }, []);
   useEffect(() => {
-    setPersonalInfo(getPersonalInfo());
-    console.log(personalInfo);
-  }, [personalInfo, setPersonalInfo]);
+    try {
+      console.log("inside personalInfo");
+      let localStorageData = fetchData("personalinfo");
+      if (!localStorageData) throw new Error("Personalinfo data not found");
+      else setPersonalInfo(localStorageData);
+    } catch (e) {
+      setPersonalInfo(getPersonalInfo);
+      storeData("personalinfo", personalInfo);
+    }
+  }, []);
+
   return (
     <div className="ui centered">
       <div className="ui form">
         <div>
-          <h4 className="ui dividing header">Contact Information</h4>
+          <h3 className="ui dividing header">Personal Information</h3>
           <div className="ui field">
             <div className="ui two fields">
               <Input
