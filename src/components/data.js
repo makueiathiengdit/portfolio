@@ -13,7 +13,7 @@ let placeholders = {
   schoolPlaceholder: "e.g Juba University",
   awardPlaceholder: "e.g Bachelors of Science",
   skillPlaceholder: "e.g problem solving",
-  description: "Enter description",
+  description: "e.g Managing branch operations",
   hobbyPlaceholder: "e.g reading novels",
   jobTittlePlaceholder: "e.g Assitant Manager",
   employerPlaceholder: "e.g Kush Bank",
@@ -92,7 +92,10 @@ let experienceInfo = [
     jobTittle: placeholders.jobTittlePlaceholder,
     startDate: placeholders.startDatePlaceholder,
     endDate: placeholders.endDatePlaceholder,
-    description: placeholders.descriptionPlaceholder,
+    description: [
+      placeholders.descriptionPlaceholder,
+      placeholders.descriptionPlaceholder,
+    ],
   },
 ];
 

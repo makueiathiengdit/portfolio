@@ -1,10 +1,14 @@
 import React from "react";
 
-function RemoveButton({ onClick }) {
+function RemoveButton({ onClick, transparent = true }) {
   return (
     <>
-      <button className="negative mini ui icon  button" onClick={onClick}>
-        <i className="times icon"></i>
+      <button
+        className="negative ui medium icon"
+        onClick={onClick}
+        style={{ border: "none", background: "transparent" }}
+      >
+        <i className="times icon red"></i>
       </button>
     </>
   );

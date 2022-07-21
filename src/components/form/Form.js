@@ -8,11 +8,12 @@ import ReferencesView from "../views/ReferencesView";
 import HobbiesView from "../views/HobbiesView";
 import DownloadView from "../views/DownloadView";
 import toast, { Toaster } from "react-hot-toast";
+import { fetchData, storeData, deleteData } from "../ultils/Storage";
 
 import Steps from "./Steps";
 import Next from "./Next";
 import Header from "../Header";
-
+const POPUP_DELAY = 100;
 let views = [
   "Personal Information",
   "Education Information",
@@ -43,13 +44,32 @@ const ClearLocalStorage = () => {
 
 function Form() {
   const [currentStep, setCurrentStep] = useState(0);
+  // window.addEventListener("beforeunload", (event) => {
+  //   event.returnValue = "Save data before exit?";
+  //   if (window.confirm("Are you sure you want to exit?")) {
+  //     storeData("currenstep", currentStep);
+  //   }
+  // });
+
   useEffect(() => {
-    setCurrentStep(currentStep);
+    let storedStep = fetchData("currentstep");
+    if (storedStep) {
+      setCurrentStep(storedStep);
+      deleteData("currentstep");
+    } else {
+      setCurrentStep(currentStep);
+      // storeData("currentstep", currentStep);
+    }
+    // return () => {
+    //   window.removeEventListener("beforeunload", (e) => {
+    //     console.log("removing eventlistener...");
+    //   });
+    // };
   }, [currentStep, setCurrentStep]);
 
   const handleNextClick = () => {
     let promise = new Promise(function (resolve, reject) {
-      setTimeout(() => resolve("done"), 800);
+      setTimeout(() => resolve("done"), POPUP_DELAY);
     });
     notify(promise, views[currentStep]);
 
@@ -59,11 +79,12 @@ function Form() {
   };
   const handlePrevClick = () => {
     let promise = new Promise(function (resolve, reject) {
-      setTimeout(() => resolve("done"), 800);
+      setTimeout(() => resolve("done"), POPUP_DELAY);
     });
-    if (currentStep != views.length - 1) {
+    if (currentStep !== views.length - 1) {
       notify(promise, views[currentStep]);
     } else {
+      // if going back from download no need to notify
       setCurrentStep((currentStep) => currentStep - 1);
       return;
     }
@@ -71,12 +92,16 @@ function Form() {
       setCurrentStep((currentStep) => currentStep - 1);
     });
   };
+
+  const handleStepLinkClick = (step) => {
+    setCurrentStep(step);
+  };
   return (
     <div className="ui main">
       <Toaster />
       {/* <Header /> */}
       <div className="ui container">
-        <Steps currentStep={currentStep} />
+        <Steps currentStep={currentStep} onClick={handleStepLinkClick} />
       </div>
       <div>
         <ClearLocalStorage />

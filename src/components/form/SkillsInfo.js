@@ -3,6 +3,7 @@ import Input from "./Input";
 import { getSkillInfo } from "../data";
 import { fetchData, storeData, deleteData } from "../ultils/Storage";
 import RemoveButton from "./RemoveButton";
+import AddButton from "./AddButton";
 function SkillsInfo({ onReload }) {
   const [skills, setSkills] = useState([]);
   useEffect(() => {
@@ -47,6 +48,13 @@ function SkillsInfo({ onReload }) {
       alert("field cannot be empty");
     }
   };
+
+  const handleAdd = () => {
+    skills.push("Public speaking");
+    storeData("skills", skills);
+    setSkills(skills);
+    onReload();
+  };
   return (
     <div>
       <div className="ui form">
@@ -72,6 +80,7 @@ function SkillsInfo({ onReload }) {
             ))}
           </ol>
         </div>
+        <AddButton onClick={handleAdd} />
       </div>
     </div>
   );

@@ -3,20 +3,22 @@ import Input from "./Input";
 import { getHobbyInfo } from "../data";
 import { fetchData, storeData, deleteData } from "../ultils/Storage";
 import RemoveButton from "./RemoveButton";
+import AddButton from "./AddButton";
 function HobbiesInfo({ onReload }) {
   const [hobbies, setHobbies] = useState([]);
 
   useEffect(() => {
     try {
+      console.time("fetching hobbies");
       let localStorageData = fetchData("hobbies");
       if (!localStorageData) throw new Error("Hobbies data not found");
       else setHobbies(localStorageData);
+      console.timeEnd("fetching hobbies");
     } catch (e) {
-      console.log("Error fetching Hobbies: " + e.message);
+      console.log("Error fetching Hobbies: ");
       setHobbies(getHobbyInfo());
       if (hobbies.length > 0) storeData("hobbies", hobbies);
     }
-    setHobbies(getHobbyInfo);
   }, [hobbies.length]);
 
   const handleInputChange = (id, value) => {
@@ -24,6 +26,7 @@ function HobbiesInfo({ onReload }) {
     value = value.trim();
     if (value.length >= 3) {
       hobbies[id] = value;
+
       storeData("hobbies", hobbies);
       setHobbies(hobbies);
     } else {
@@ -47,6 +50,13 @@ function HobbiesInfo({ onReload }) {
     onReload();
   };
 
+  const handleAdd = () => {
+    console.log("Adding to hobbies...");
+    hobbies.push("e.g reading novels");
+    storeData("hobbies", hobbies);
+    setHobbies(hobbies);
+    onReload();
+  };
   return (
     <div>
       <div className="ui form">
@@ -54,12 +64,11 @@ function HobbiesInfo({ onReload }) {
         <ol className="ui list">
           {hobbies.map((hobby, index) => (
             <li key={index} data-id={index}>
-              <div className="ui two fields middle aligned">
+              <div className="ui two fields ">
                 <Input
                   type="text"
                   id={index}
-                  placeholder="Enter hobby"
-                  label=""
+                  placeholder={hobby}
                   key={index}
                   passedValue={hobby}
                   onChange={handleInputChange}
@@ -69,6 +78,9 @@ function HobbiesInfo({ onReload }) {
             </li>
           ))}
         </ol>
+        <div className="ui four fields">
+          <AddButton onClick={handleAdd} text="Add" />
+        </div>
       </div>
     </div>
   );

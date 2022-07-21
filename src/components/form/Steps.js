@@ -36,11 +36,9 @@ let stepsData = [
     completed: false,
   },
 ];
-function Steps({ currentStep }) {
+function Steps({ currentStep, onClick }) {
   const [steps, setSteps] = useState(stepsData);
   useEffect(() => {
-    console.log(`Current step: ${currentStep}`);
-    steps[currentStep] = { ...steps[currentStep], active: true };
     setSteps(steps);
   }, [currentStep]);
   return (
@@ -64,8 +62,12 @@ function Steps({ currentStep }) {
               className={`${step.active ? "active" : ""} ${
                 step.completed ? "completed" : ""
               } step`}
-              href="#"
+              href="http://localhost:3000/"
               key={index}
+              onClick={(e) => {
+                e.preventDefault();
+                onClick(index);
+              }}
             >
               <div className="content">
                 <div className="title">{step.name}</div>

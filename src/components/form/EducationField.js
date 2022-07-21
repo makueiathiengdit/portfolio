@@ -1,6 +1,16 @@
 import React from "react";
 import Input from "./Input";
-function EducationField({ data }) {
+import RemoveButton from "./RemoveButton";
+
+function EducationField({ data, id, onChange, onRemove }) {
+  const handleInputChange = (field, value) => {
+    onChange(id, field, value);
+  };
+  const handleRemove = () => {
+    console.log("Removing ");
+    onRemove(id);
+  };
+
   return (
     <div className="ui field">
       <div className="ui three fields">
@@ -9,22 +19,26 @@ function EducationField({ data }) {
           id="year"
           placeholder={data.year}
           label="Year"
-          value={data.year}
+          passedValue={data.year}
+          onChange={handleInputChange}
         />
         <Input
           label="School/Insitution"
           type="text"
           id="school"
           placeholder={data.school}
-          value={data.school}
+          passedValue={data.school}
+          onChange={handleInputChange}
         />
         <Input
           label="Award"
           type="text"
           id="award"
           placeholder={data.award}
-          value={data.award}
+          passedValue={data.award}
+          onChange={handleInputChange}
         />
+        <RemoveButton onClick={handleRemove} />
       </div>
     </div>
   );
