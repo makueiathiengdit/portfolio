@@ -11,6 +11,7 @@ const fetchData = (key) => {
 };
 
 const deleteData = (key) => {
+  console.log(`Deleting: ${key}`);
   localStorage.removeItem(key);
 };
 export { storeData, fetchData, deleteData };

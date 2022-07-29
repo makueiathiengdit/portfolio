@@ -11,16 +11,16 @@ let personalInfo = {
 };
 
 let contactInfo = {
-  mobile: "+91-000-000-0000",
-  email: "name@gmail.com",
+  mobile: "+91-789-234-1511",
+  email: "makueiathiengdit@gmail.com",
 };
 
 let educationInfo = [
-  // {
-  //   year: 2023,
-  //   school: "Panjab University",
-  //   award: "Bachelors of Enginering(CSE)",
-  // },
+  {
+    year: "2023*",
+    school: "Panjab University",
+    award: "Bachelors of Enginering(CSE)",
+  },
   {
     year: 2018,
     school: "Don Bosco Secondary School",

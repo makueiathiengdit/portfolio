@@ -31,8 +31,9 @@ function ExperienceInfo({ onReload }) {
     }
   }, []);
 
-  const handleBlur = (id, data) => {
-    console.log("setting blur", id);
+  const handleBlur = (id, newData) => {
+    console.log(`Experience id: ${id} data: ${data}`);
+    data[id] = newData;
     onReload();
   };
   const handleRemove = (id) => {
@@ -55,7 +56,7 @@ function ExperienceInfo({ onReload }) {
           {console.log("Inside experience info", data)}
           {data.length === 0 && <div>No experience data found</div>}
           {data.map((item, index) => (
-            <div className="ui field">
+            <div className="ui field" key={index}>
               <ExperienceField
                 data={item}
                 key={index}

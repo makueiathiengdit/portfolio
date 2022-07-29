@@ -2,10 +2,10 @@ import React from "react";
 
 function StackTable({ data = [] }) {
   let testData = [
-    { frontend: "HTML", backend: "NodeJS (Intermediate)", general: "C" },
-    { frontend: "CSS", backend: "PHP", general: "C++" },
-    { frontend: "JS", backend: "Express", general: "Python" },
-    { frontend: "ReactJS", backend: "MySQL", general: "" },
+    { frontend: "HTML", backend: "PHP", general: "C" },
+    { frontend: "CSS", backend: "MySQL", general: "C++" },
+    { frontend: "JS", backend: "", general: "Python" },
+    { frontend: "ReactJS", backend: "", general: "" },
   ];
   return (
     <>
